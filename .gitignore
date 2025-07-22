@@ -1,0 +1,114 @@
+### Terraform ###
+# Local Terraform directories
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate.lock.info
+
+# State files
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfstate.*
+
+# Plan and var files
+*.plan
+*.tfplan
+*.auto.tfvars
+*.tfvars
+terraform.auto.tfvars
+override.tf
+override.tf.json
+
+### AWS ###
+# Credentials
+*.pem
+*.cer
+*.crt
+*.key
+*.p12
+*.pkcs12
+*.pfx
+*.der
+credentials
+*.cred
+
+### SSH ###
+id_rsa*
+id_ed25519*
+*.pub
+known_hosts
+ssh_config
+
+### WordPress ###
+wp-config.php
+.htaccess
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup-*
+
+### System ###
+# OS metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+*.code-workspace
+
+### Logs ###
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.logs
+user-data.log
+cloud-init-output.log
+
+### CI/CD ###
+.env
+.env.*
+!.env.example
+.cache/
+dist/
+build/
+node_modules/
+
+### Temp Files ###
+*.tmp
+*.temp
+*~
+~$*
+*.old
+
+### Backup Files ###
+*.bak
+*.backup
+*.back
+*.save
+
+### Advanced ###
+# Local overrides
+_override.tf
+_override.tf.json
+
+# Terraform test fixtures
+test-fixtures/
+tests/terraform.tfstate
+
+# Packer
+packer_cache/
+*.manifest.json
+
+# Terragrunt
+.terragrunt-cache/
