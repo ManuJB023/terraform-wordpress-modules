@@ -31,6 +31,19 @@ provider "aws" {
   }
 }
 
+# Create a local for common tags to avoid repetition
+locals {
+  common_tags = {
+    Environment = "production"
+    Project     = var.project_name
+    CostCenter  = var.cost_center
+    Owner       = var.owner_email
+    Backup      = "required"
+    Monitoring  = "enabled"
+    ManagedBy   = "terraform"
+  }
+}
+
 module "wordpress" {
   source = "../../modules/wordpress"
 
@@ -47,12 +60,12 @@ module "wordpress" {
   public_key        = var.public_key
   existing_key_name = var.existing_key_name
   
-  # Production database configuration (using currently supported variables)
-  db_name             = var.db_name
-  db_username         = var.db_username
-  db_password         = var.db_password
-  db_instance_class   = "db.r5.large"           # Production-grade instance
-  db_allocated_storage = 100                    # More storage
+  # Production database configuration
+  db_name              = var.db_name
+  db_username          = var.db_username
+  db_password          = var.db_password
+  db_instance_class    = "db.r5.large"           # Production-grade instance
+  db_allocated_storage = 100                     # More storage
   
   # High-availability compute configuration
   instance_type    = "t3.medium"                # Larger instances
@@ -67,12 +80,5 @@ module "wordpress" {
   wp_email    = var.wp_email
   
   # Production tags
-  tags = {
-    Environment = "production"
-    Project     = var.project_name
-    CostCenter  = var.cost_center
-    Owner       = var.owner_email
-    Backup      = "required"
-    Monitoring  = "enabled"
-  }
+  tags = local.common_tags
 }

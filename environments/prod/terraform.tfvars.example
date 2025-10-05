@@ -1,0 +1,16 @@
+aws_region = "us-east-1"
+project_name = "my-site"
+cost_center = "prod-web-001"
+owner_email = "your-email"
+
+# TEMPORARY: Simplified passwords for testing
+db_password = "CHANGE_THIS_SECURE_PASSWORD"
+wp_password = "CHANGE_THIS_SECURE_PASSWORD"
+allowed_ssh_cidrs = ["YOUR_IP_ADDRESS/32"]
+public_key = "YOUR_SSH_PUBLIC_KEY"
+
+# Add these required variables:
+wp_title = "My Production Site"
+wp_admin = "admin"
+db_username = "wp_admin"
+environment = "production"
